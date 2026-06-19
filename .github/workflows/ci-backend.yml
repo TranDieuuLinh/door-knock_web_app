@@ -1,4 +1,5 @@
 name: doorknock_Backend_CI
+
 on:
   push:
     branches: [main]
@@ -7,9 +8,6 @@ on:
 jobs:
   build-test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: backend
     services:
       postgres:
         image: postgres:16-alpine
@@ -36,12 +34,24 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v4
+
+      - name: Verify backend directory exists
+        run: |
+          if [ ! -f backend/pom.xml ]; then
+            echo "ERROR: backend/pom.xml not found in this commit."
+            echo "The backend/ folder must be committed to the repository."
+            ls -la
+            exit 1
+          fi
+
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
           java-version: 21
-          distribution: 'temurin'
-          cache: 'maven'
+          distribution: temurin
+          cache: maven
+          cache-dependency-path: backend/pom.xml
 
       - name: Backend verify
+        working-directory: backend
         run: ./mvnw -B clean verify
