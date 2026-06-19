@@ -7,7 +7,7 @@ const eslintConfig = defineConfig([
   ...nextTs,
   {
     rules: {
-      camelcase: ["error", { properties: "never" }],
+      camelcase: ["error", { properties: "never", ignoreImports: true }],
     },
   },
   // Override default ignores of eslint-config-next.

@@ -49,6 +49,8 @@ export function useUsers() {
   }, []);
 
   useEffect(() => {
+    // Data fetch on mount; setState runs inside async callback after API response.
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- initial data load
     void fetchUsers();
   }, [fetchUsers]);
 
