@@ -1,0 +1,12 @@
+# IDE
+.idea/
+
+# OS
+.DS_Store
+
+# Backend
+backend/target/
+
+# Frontend (also covered by frontend/.gitignore)
+frontend/node_modules/
+frontend/.next/
