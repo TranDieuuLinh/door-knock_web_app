@@ -32,10 +32,10 @@ public class User {
     @Column(nullable = false, unique = true)
     private String password;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String campaign;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private Instant createdAt;
 
     @Enumerated(EnumType.STRING)
