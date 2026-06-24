@@ -1,6 +1,6 @@
-package com.doorknock.features.user.repository;
+package com.doorknock.features.repository;
 
-import com.doorknock.features.user.model.User;
+import com.doorknock.features.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

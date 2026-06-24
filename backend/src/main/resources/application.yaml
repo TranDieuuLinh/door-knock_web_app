@@ -20,7 +20,7 @@ spring:
   sql:
     init:
       mode: always
-      data-locations: classpath:data/user_data.sql
+      data-locations: classpath:data/insert_data.sql
 
   h2:
     console:

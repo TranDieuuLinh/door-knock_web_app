@@ -1,10 +1,10 @@
-package com.doorknock.features.user.service;
+package com.doorknock.features.service;
 
-import com.doorknock.features.user.dtos.CreateUserRequest;
-import com.doorknock.features.user.dtos.UpdateUserRequest;
-import com.doorknock.features.user.dtos.UserResponse;
-import com.doorknock.features.user.model.User;
-import com.doorknock.features.user.repository.UserRepository;
+import com.doorknock.features.dtos.CreateUserRequest;
+import com.doorknock.features.dtos.UpdateUserRequest;
+import com.doorknock.features.dtos.UserResponse;
+import com.doorknock.features.model.User;
+import com.doorknock.features.repository.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -65,6 +65,6 @@ public class UserServiceImpl implements UserService {
     }
 
     private UserResponse toResponse(User user) {
-        return new UserResponse(user.getId(), user.getName(), user.getEmail());
+        return new UserResponse(user.getUserId(), user.getName(), user.getEmail());
     }
 }

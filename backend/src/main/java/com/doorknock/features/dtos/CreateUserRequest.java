@@ -1,4 +1,4 @@
-package com.doorknock.features.user.dtos;
+package com.doorknock.features.dtos;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

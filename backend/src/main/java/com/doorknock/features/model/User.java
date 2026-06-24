@@ -1,12 +1,13 @@
-package com.doorknock.features.user.model;
+package com.doorknock.features.model;
 
 import com.doorknock.features.common.enums.VolunteerRoles;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
-
 
 @Entity
 @Table(name = "users")
@@ -18,7 +19,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    private UUID userId;
 
     @Column(nullable = false)
     private String name;
@@ -26,10 +27,16 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @Column(nullable = false)
+    private String address;
+
+    @Column(nullable = false)
+    private String territory;
+
     @Column(nullable = false, unique = true)
     private int phone;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String password;
 
     @Column(nullable = false)
@@ -41,4 +48,14 @@ public class User {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private VolunteerRoles role;
+
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "user_id")
+    private List<Task> tasks;
+
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "user_id")
+    private List<Visit> visits;
 }

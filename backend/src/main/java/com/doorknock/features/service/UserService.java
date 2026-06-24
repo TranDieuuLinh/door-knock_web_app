@@ -1,8 +1,8 @@
-package com.doorknock.features.user.service;
+package com.doorknock.features.service;
 
-import com.doorknock.features.user.dtos.CreateUserRequest;
-import com.doorknock.features.user.dtos.UpdateUserRequest;
-import com.doorknock.features.user.dtos.UserResponse;
+import com.doorknock.features.dtos.CreateUserRequest;
+import com.doorknock.features.dtos.UpdateUserRequest;
+import com.doorknock.features.dtos.UserResponse;
 
 import java.util.List;
 import java.util.UUID;

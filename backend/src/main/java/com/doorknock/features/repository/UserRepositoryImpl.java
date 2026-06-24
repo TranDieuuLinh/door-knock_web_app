@@ -1,6 +1,6 @@
-package com.doorknock.features.user.repository;
+package com.doorknock.features.repository;
 
-import com.doorknock.features.user.model.User;
+import com.doorknock.features.model.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

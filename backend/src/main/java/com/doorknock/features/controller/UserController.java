@@ -1,9 +1,9 @@
-package com.doorknock.features.user.controller;
+package com.doorknock.features.controller;
 
-import com.doorknock.features.user.dtos.CreateUserRequest;
-import com.doorknock.features.user.dtos.UpdateUserRequest;
-import com.doorknock.features.user.dtos.UserResponse;
-import com.doorknock.features.user.service.UserService;
+import com.doorknock.features.dtos.CreateUserRequest;
+import com.doorknock.features.dtos.UpdateUserRequest;
+import com.doorknock.features.dtos.UserResponse;
+import com.doorknock.features.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
