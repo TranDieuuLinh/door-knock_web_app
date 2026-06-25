@@ -1,4 +1,4 @@
-package com.doorknock.features.model;
+package com.doorknock.features.model.entities;
 
 import com.doorknock.features.common.enums.TaskStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;

@@ -1,14 +1,17 @@
 package com.doorknock.features.controller;
 
-import com.doorknock.features.dtos.CreateUserRequest;
-import com.doorknock.features.dtos.UpdateUserRequest;
-import com.doorknock.features.dtos.UserResponse;
+import com.doorknock.features.model.dtos.User.CreateUserRequest;
+import com.doorknock.features.model.dtos.User.UserPageRequest;
+import com.doorknock.features.model.dtos.User.UpdateUserRequest;
+import com.doorknock.features.model.dtos.User.UserResponse;
 import com.doorknock.features.service.UserService;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -18,7 +21,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URI;
-import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -43,8 +45,8 @@ public class UserController {
     }
 
     @GetMapping
-    public List<UserResponse> getAll() {
-        return userService.getAll();
+    public Page<UserResponse> getAll(@ModelAttribute UserPageRequest request) {
+        return userService.getAll(request);
     }
 
     @PutMapping("/{id}")

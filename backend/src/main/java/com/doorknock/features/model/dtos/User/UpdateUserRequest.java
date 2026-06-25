@@ -1,9 +1,9 @@
-package com.doorknock.features.dtos;
+package com.doorknock.features.model.dtos.User;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
-public record CreateUserRequest(
+public record UpdateUserRequest(
         @NotBlank(message = "name is required")
         String name,
 

@@ -1,4 +1,4 @@
-package com.doorknock.features.model;
+package com.doorknock.features.model.entities;
 
 import com.doorknock.features.common.enums.VisitStatus;
 import jakarta.persistence.*;
