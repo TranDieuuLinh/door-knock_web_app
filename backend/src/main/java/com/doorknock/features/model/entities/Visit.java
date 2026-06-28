@@ -31,4 +31,7 @@ public class Visit {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private VisitStatus visitStatus;
+
+    @Column(name = "user_id", nullable = false)
+    private UUID userId;
 }

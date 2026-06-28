@@ -1,10 +1,11 @@
 package com.doorknock.features.controller;
 
-import com.doorknock.features.model.dtos.User.CreateUserRequest;
-import com.doorknock.features.model.dtos.User.UserPageRequest;
-import com.doorknock.features.model.dtos.User.UpdateUserRequest;
-import com.doorknock.features.model.dtos.User.UserResponse;
-import com.doorknock.features.service.UserService;
+import com.doorknock.features.model.dtos.user.CreateUserRequest;
+import com.doorknock.features.model.dtos.user.UserPageRequest;
+import com.doorknock.features.model.dtos.user.UpdateUserRequest;
+import com.doorknock.features.model.dtos.user.UserResponse;
+import com.doorknock.features.model.dtos.user.UserWithVisitStatsResponse;
+import com.doorknock.features.service.user.UserService;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -37,6 +38,11 @@ public class UserController {
     public ResponseEntity<UserResponse> create(@Valid @RequestBody CreateUserRequest request) {
         UserResponse created = userService.create(request);
         return ResponseEntity.created(URI.create("/api/users/" + created.id())).body(created);
+    }
+
+    @GetMapping("/door-knocked")
+    public Page<UserWithVisitStatsResponse> getAllWithVisitStats(@ModelAttribute UserPageRequest request) {
+        return userService.getAllWithVisitStats(request);
     }
 
     @GetMapping("/{id}")

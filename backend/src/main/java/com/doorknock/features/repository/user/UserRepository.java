@@ -1,5 +1,6 @@
-package com.doorknock.features.repository.User;
+package com.doorknock.features.repository.user;
 
+import com.doorknock.features.common.enums.VolunteerRoles;
 import com.doorknock.features.model.entities.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,6 +18,8 @@ public interface UserRepository {
     List<User> findAll();
 
     Page<User> findAll(Pageable pageable);
+
+    Page<User> findAllByRole(VolunteerRoles role, Pageable pageable);
 
     void delete(User user);
 }

@@ -1,4 +1,4 @@
-package com.doorknock.features.repository.Task;
+package com.doorknock.features.repository.task;
 
 import com.doorknock.features.model.entities.Task;
 import org.springframework.data.jpa.repository.JpaRepository;

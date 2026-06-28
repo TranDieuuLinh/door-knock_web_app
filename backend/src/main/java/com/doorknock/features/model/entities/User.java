@@ -1,5 +1,6 @@
 package com.doorknock.features.model.entities;
 
+import com.doorknock.features.common.enums.UserStatus;
 import com.doorknock.features.common.enums.VolunteerRoles;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -42,6 +43,10 @@ public class User {
     @Column(nullable = false)
     private String campaign;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private UserStatus userStatus;
+    
     @Column(nullable = false)
     private Instant createdAt;
 

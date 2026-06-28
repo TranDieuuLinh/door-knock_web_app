@@ -1,11 +1,14 @@
-package com.doorknock.features.service;
+package com.doorknock.features.service.user;
 
-import com.doorknock.features.model.dtos.User.CreateUserRequest;
-import com.doorknock.features.model.dtos.User.UserPageRequest;
-import com.doorknock.features.model.dtos.User.UpdateUserRequest;
-import com.doorknock.features.model.dtos.User.UserResponse;
+import com.doorknock.features.model.dtos.user.CreateUserRequest;
+import com.doorknock.features.model.dtos.user.UserPageRequest;
+import com.doorknock.features.model.dtos.user.UpdateUserRequest;
+import com.doorknock.features.model.dtos.user.UserResponse;
+import com.doorknock.features.model.dtos.user.UserWithVisitStatsResponse;
+import com.doorknock.features.model.dtos.visit.VisitStats;
 import com.doorknock.features.model.entities.User;
-import com.doorknock.features.repository.User.UserRepository;
+import com.doorknock.features.repository.user.UserRepository;
+import com.doorknock.features.repository.visit.VisitRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -16,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
@@ -28,9 +32,11 @@ public class UserServiceImpl implements UserService {
     private static final Set<String> ALLOWED_SORT_FIELDS = Set.of("name", "email", "createdAt");
 
     private final UserRepository userRepository;
+    private final VisitRepository visitRepository;
 
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository, VisitRepository visitRepository) {
         this.userRepository = userRepository;
+        this.visitRepository = visitRepository;
     }
 
     @Override
@@ -51,7 +57,21 @@ public class UserServiceImpl implements UserService {
     @Transactional(readOnly = true)
     public Page<UserResponse> getAll(UserPageRequest request) {
         Pageable pageable = buildPageable(request);
-        return userRepository.findAll(pageable).map(this::toResponse);
+        return findUsers(request, pageable).map(this::toResponse);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<UserWithVisitStatsResponse> getAllWithVisitStats(UserPageRequest request) {
+        Pageable pageable = buildPageable(request);
+        Page<User> users = findUsers(request, pageable);
+
+        List<UUID> userIds = users.getContent().stream()
+                .map(User::getUserId)
+                .toList();
+        Map<UUID, VisitStats> statsByUserId = visitRepository.getStatsByUserIds(userIds);
+
+        return users.map(user -> toResponseWithVisitStats(user, statsByUserId.get(user.getUserId())));
     }
 
     @Override
@@ -75,6 +95,13 @@ public class UserServiceImpl implements UserService {
         userRepository.delete(findOrThrow(id));
     }
 
+    private Page<User> findUsers(UserPageRequest request, Pageable pageable) {
+        if (request.role() == null) {
+            return userRepository.findAll(pageable);
+        }
+        return userRepository.findAllByRole(request.role(), pageable);
+    }
+
     private User findOrThrow(UUID id) {
         return userRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(
@@ -82,14 +109,27 @@ public class UserServiceImpl implements UserService {
     }
 
     private UserResponse toResponse(User user) {
-        return new UserResponse(user.getUserId(), user.getName(), user.getEmail(), user.getTerritory(), user.getRole(), user.getCampaign());
+        return new UserResponse(
+                user.getUserId(),
+                user.getName(),
+                user.getTerritory(),
+                user.getCampaign(),
+                user.getRole()
+        );
+    }
+
+    private UserWithVisitStatsResponse toResponseWithVisitStats(User user, VisitStats stats) {
+        VisitStats visitStats = stats != null ? stats : VisitStats.empty();
+        return new UserWithVisitStatsResponse(toResponse(user), visitStats);
     }
 
     private Pageable buildPageable(UserPageRequest request) {
         int page = request.page() < 0 ? DEFAULT_PAGE : request.page();
         int size = request.size() <= 0 ? DEFAULT_SIZE : Math.min(request.size(), MAX_SIZE);
 
-        String sortBy = ALLOWED_SORT_FIELDS.contains(request.sortBy()) ? request.sortBy() : "name";
+        String sortBy = request.sortBy() != null && ALLOWED_SORT_FIELDS.contains(request.sortBy())
+                ? request.sortBy()
+                : "name";
         Sort.Direction direction = "desc".equalsIgnoreCase(request.sortOrder())
                 ? Sort.Direction.DESC
                 : Sort.Direction.ASC;
