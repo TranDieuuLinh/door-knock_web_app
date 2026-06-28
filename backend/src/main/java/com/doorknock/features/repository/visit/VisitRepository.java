@@ -1,6 +1,6 @@
 package com.doorknock.features.repository.visit;
 
-import com.doorknock.features.model.dtos.visit.VisitStats;
+import com.doorknock.features.model.dtos.visit.VisitStat;
 import com.doorknock.features.model.entities.Visit;
 
 import java.time.Instant;
@@ -22,6 +22,5 @@ public interface VisitRepository {
     long countVisitByUserId(UUID userId);
 
     Optional<Instant> findLatestVisitedTimeByUserId(UUID userId);
-
-    Map<UUID, VisitStats> getStatsByUserIds(List<UUID> userIds);
+    Map<UUID, VisitStat> getStatsByUserIds(List<UUID> userIds);
 }

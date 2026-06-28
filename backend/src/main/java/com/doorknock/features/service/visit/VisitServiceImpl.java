@@ -1,6 +1,6 @@
 package com.doorknock.features.service.visit;
 
-import com.doorknock.features.model.dtos.visit.VisitStats;
+import com.doorknock.features.model.dtos.visit.VisitStat;
 import com.doorknock.features.repository.visit.VisitRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,9 +18,9 @@ public class VisitServiceImpl implements VisitService {
     }
 
     @Override
-    public VisitStats getVisitStatsByUserId(UUID userId) {
+    public VisitStat getVisitStatsByUserId(UUID userId) {
         long totalDoorKnocked = visitRepository.countVisitByUserId(userId);
         var lastActive = visitRepository.findLatestVisitedTimeByUserId(userId).orElse(null);
-        return new VisitStats(totalDoorKnocked, lastActive);
+        return new VisitStat(totalDoorKnocked, lastActive);
     }
 }

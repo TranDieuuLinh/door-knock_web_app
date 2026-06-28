@@ -5,24 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09cc3b03-f4ff-46db-bad7-83e6760f67da" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/model/dtos/User/UserPageRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/model/dtos/User/UserPageRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/model/dtos/User/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/model/dtos/User/UserResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/model/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/model/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/model/entities/Visit.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/model/entities/Visit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/Task/TaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/Task/TaskRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/Task/TaskRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/Task/TaskRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/User/UserJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/User/UserJpaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/User/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/User/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/User/UserRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/User/UserRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/Visit/VisitJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/Visit/VisitJpaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/Visit/VisitRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/Visit/VisitRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/Visit/VisitRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/Visit/VisitRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/service/UserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/data/insert_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/data/insert_data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/model/dtos/user/UserWithVisitStatsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/model/dtos/user/UserWithVisitStatsResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/model/dtos/visit/VisitStats.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/visit/VisitRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/visit/VisitRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/visit/VisitRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/visit/VisitRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/service/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/service/user/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/service/visit/VisitService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/service/visit/VisitService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/service/visit/VisitServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/service/visit/VisitServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +25,7 @@
       <list>
         <option value="module-info" />
         <option value="Class" />
+        <option value="Record" />
       </list>
     </option>
   </component>
@@ -49,25 +41,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;Spring Boot.DoorknockApplication.executor&quot;: &quot;Run&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/martin/implement__list__users__management__backend&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/martin/door-knock_web_app&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Spring Boot.DoorknockApplication.executor": "Run",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "feature/martin/develop__table__of__users",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/martin/door-knock_web_app",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="DoorknockApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../.jdks/ms-21.0.11" />
@@ -119,6 +111,15 @@
           <line>17</line>
           <properties field="id" class="com.doorknock.features.user.model.User" />
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/service/user/UserService.java</url>
+          <line>20</line>
+          <properties class="com.doorknock.features.service.user.UserService" method="getAllWithVisitStats">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

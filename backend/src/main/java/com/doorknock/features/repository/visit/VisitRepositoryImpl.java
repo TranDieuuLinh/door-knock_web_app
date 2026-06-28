@@ -1,6 +1,6 @@
 package com.doorknock.features.repository.visit;
 
-import com.doorknock.features.model.dtos.visit.VisitStats;
+import com.doorknock.features.model.dtos.visit.VisitStat;
 import com.doorknock.features.model.entities.Visit;
 import org.springframework.stereotype.Repository;
 
@@ -52,7 +52,7 @@ public class VisitRepositoryImpl implements VisitRepository {
     }
 
     @Override
-    public Map<UUID, VisitStats> getStatsByUserIds(List<UUID> userIds) {
+    public Map<UUID, VisitStat> getStatsByUserIds(List<UUID> userIds) {
         if (userIds == null || userIds.isEmpty()) {
             return Map.of();
         }
@@ -67,11 +67,11 @@ public class VisitRepositoryImpl implements VisitRepository {
                 ));
     }
 
-    private VisitStats toVisitStats(List<Visit> visits) {
+    private VisitStat toVisitStats(List<Visit> visits) {
         Instant lastActive = visits.stream()
                 .map(Visit::getVisitedAt)
                 .max(Instant::compareTo)
                 .orElse(null);
-        return new VisitStats(visits.size(), lastActive);
+        return new VisitStat(visits.size(), lastActive);
     }
 }

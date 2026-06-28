@@ -1,10 +1,10 @@
 package com.doorknock.features.service.visit;
 
-import com.doorknock.features.model.dtos.visit.VisitStats;
+import com.doorknock.features.model.dtos.visit.VisitStat;
 
 import java.util.UUID;
 
 public interface VisitService {
 
-    VisitStats getVisitStatsByUserId(UUID userId);
+    VisitStat getVisitStatsByUserId(UUID userId);
 }

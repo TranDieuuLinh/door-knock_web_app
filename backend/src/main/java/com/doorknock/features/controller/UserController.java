@@ -40,7 +40,7 @@ public class UserController {
         return ResponseEntity.created(URI.create("/api/users/" + created.id())).body(created);
     }
 
-    @GetMapping("/door-knocked")
+    @GetMapping("/volunteers")
     public Page<UserWithVisitStatsResponse> getAllWithVisitStats(@ModelAttribute UserPageRequest request) {
         return userService.getAllWithVisitStats(request);
     }

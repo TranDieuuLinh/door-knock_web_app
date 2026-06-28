@@ -1,9 +1,17 @@
 package com.doorknock.features.model.dtos.user;
 
-import com.doorknock.features.model.dtos.visit.VisitStats;
+import com.doorknock.features.common.enums.VolunteerRoles;
+
+import java.time.Instant;
+import java.util.UUID;
 
 public record UserWithVisitStatsResponse(
-        UserResponse user,
-        VisitStats visitStats
+        UUID id,
+        String name,
+        String territory,
+        String campaign,
+        VolunteerRoles role,
+        long totalDoorKnocked,
+        Instant lastActive
 ) {
 }
