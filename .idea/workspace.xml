@@ -4,11 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09cc3b03-f4ff-46db-bad7-83e6760f67da" name="Changes" comment="" />
+    <list default="true" id="09cc3b03-f4ff-46db-bad7-83e6760f67da" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/model/dtos/user/UserWithVisitStatsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/model/dtos/user/UserWithVisitStatsResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/model/dtos/visit/VisitStats.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/visit/VisitRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/visit/VisitRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/visit/VisitRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/visit/VisitRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/service/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/service/user/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/service/visit/VisitService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/service/visit/VisitService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/service/visit/VisitServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/service/visit/VisitServiceImpl.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="module-info" />
+        <option value="Class" />
+        <option value="Record" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -31,7 +50,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "Spring Boot.DoorknockApplication.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "feature/martin/config__backend__dockerfile",
+    "git-widget-placeholder": "feature/martin/develop__table__of__users",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/martin/door-knock_web_app",
     "nodejs_package_manager_path": "npm",
@@ -43,8 +62,9 @@
 }]]></component>
   <component name="RunManager">
     <configuration name="DoorknockApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../.jdks/ms-21.0.11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UnknownPolicyInFreeMode" />
-      <module name="doorknock" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.doorknock.DoorknockApplication" />
       <extension name="coverage">
         <pattern>
@@ -91,6 +111,15 @@
           <line>17</line>
           <properties field="id" class="com.doorknock.features.user.model.User" />
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/service/user/UserService.java</url>
+          <line>20</line>
+          <properties class="com.doorknock.features.service.user.UserService" method="getAllWithVisitStats">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,6 +1,9 @@
-package com.doorknock.features.user.repository;
+package com.doorknock.features.repository.user;
 
-import com.doorknock.features.user.model.User;
+import com.doorknock.features.common.enums.VolunteerRoles;
+import com.doorknock.features.model.entities.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -29,6 +32,16 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public List<User> findAll() {
         return jpaRepository.findAll();
+    }
+
+    @Override
+    public Page<User> findAll(Pageable pageable) {
+        return jpaRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<User> findAllByRole(VolunteerRoles role, Pageable pageable) {
+        return jpaRepository.findByRole(role, pageable);
     }
 
     @Override

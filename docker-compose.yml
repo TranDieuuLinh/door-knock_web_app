@@ -1,6 +1,8 @@
 services:
   postgres:
     image: postgres:16-alpine
+    ports:
+      - "5433:5432"
     environment:
       POSTGRES_DB: doorknock
       POSTGRES_USER: doorknock
@@ -23,6 +25,9 @@ services:
       SPRING_DATASOURCE_PASSWORD: doorknock
       SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_DEFER_DATASOURCE_INITIALIZATION: "true"
+      SPRING_SQL_INIT_MODE: always
+      SPRING_SQL_INIT_DATA_LOCATIONS: classpath:data/insert_data.sql
       SPRING_JPA_SHOW_SQL: "false"
       SPRING_H2_CONSOLE_ENABLED: "false"
     depends_on:
