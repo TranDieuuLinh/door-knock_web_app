@@ -549,7 +549,7 @@ export default function UsersPage() {
   return (
     <div className="flex h-full min-h-0 w-full bg-zinc-100 text-zinc-900">
       <aside className="flex w-56 shrink-0 flex-col bg-[#0d2574] px-5 py-6 text-white">
-        <div className="mb-8 flex items-center gap-2">
+        <div className="mb-8 flex items-center justify-center gap-2">
           <BrandLogo />
           <span className="whitespace-nowrap text-3xl font-semibold leading-none tracking-tight">
             Doorknock
