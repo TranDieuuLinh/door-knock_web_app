@@ -1,8 +1,12 @@
 import { config } from "@/lib/config";
+import { buildUserPageQuery } from "@/lib/userQuery";
 import type {
   CreateUserRequest,
+  PageResponse,
   UpdateUserRequest,
   User,
+  UserPageParams,
+  UserWithVisitStats,
 } from "@/types";
 
 class ApiError extends Error {
@@ -43,19 +47,24 @@ async function request<T>(
 
 export const api = {
   users: {
-    getAll: () => request<User[]>("/api/users"),
-    getById: (id: number) => request<User>(`/api/users/${id}`),
+    getAll: (params: UserPageParams) =>
+      request<PageResponse<User>>(`/api/users?${buildUserPageQuery(params)}`),
+    getAllWithVisitStats: (params: UserPageParams) =>
+      request<PageResponse<UserWithVisitStats>>(
+        `/api/users/volunteers?${buildUserPageQuery(params)}`,
+      ),
+    getById: (id: string) => request<User>(`/api/users/${id}`),
     create: (body: CreateUserRequest) =>
       request<User>("/api/users", {
         method: "POST",
         body: JSON.stringify(body),
       }),
-    update: (id: number, body: UpdateUserRequest) =>
+    update: (id: string, body: UpdateUserRequest) =>
       request<User>(`/api/users/${id}`, {
         method: "PUT",
         body: JSON.stringify(body),
       }),
-    delete: (id: number) =>
+    delete: (id: string) =>
       request<void>(`/api/users/${id}`, { method: "DELETE" }),
   },
 };

@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { api, ApiError } from "@/lib/api";
-import type { User } from "@/types";
+import type { PageResponse, UserPageParams, UserWithVisitStats } from "@/types";
 
 const MAX_RETRIES = 8;
 const RETRY_DELAY_MS = 1500;
@@ -15,8 +15,11 @@ async function sleep(ms: number) {
   await new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export function useUsers() {
-  const [users, setUsers] = useState<User[]>([]);
+export function useUsers(params: UserPageParams) {
+  const { page, size, role, sortBy, sortOrder } = params;
+  const [pageData, setPageData] = useState<PageResponse<UserWithVisitStats> | null>(
+    null,
+  );
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -26,8 +29,14 @@ export function useUsers() {
 
     for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
       try {
-        const data = await api.users.getAll();
-        setUsers(data);
+        const data = await api.users.getAllWithVisitStats({
+          page,
+          size,
+          role,
+          sortBy,
+          sortOrder,
+        });
+        setPageData(data);
         setLoading(false);
         return;
       } catch (err) {
@@ -42,17 +51,22 @@ export function useUsers() {
             ? `Failed to load users (${err.status})`
             : "Failed to load users. Is the backend running on port 8080?";
         setError(message);
+        setPageData(null);
         setLoading(false);
         return;
       }
     }
-  }, []);
+  }, [page, size, role, sortBy, sortOrder]);
 
   useEffect(() => {
-    // Data fetch on mount; setState runs inside async callback after API response.
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- initial data load
     void fetchUsers();
   }, [fetchUsers]);
 
-  return { users, loading, error, refetch: fetchUsers };
+  return {
+    users: pageData?.content ?? [],
+    page: pageData,
+    loading,
+    error,
+    refetch: fetchUsers,
+  };
 }
