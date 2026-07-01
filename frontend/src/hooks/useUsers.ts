@@ -20,6 +20,30 @@ function buildRequestKey(params: UserPageParams, refetchCount: number) {
   return `${page}|${size}|${role ?? ""}|${sortBy}|${sortOrder}|${refetchCount}`;
 }
 
+async function loadUsers(
+  params: UserPageParams,
+): Promise<PageResponse<UserWithVisitStats>> {
+  for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      return await api.users.getAllWithVisitStats(params);
+    } catch (err) {
+      const canRetry = isRetryableError(err) && attempt < MAX_RETRIES;
+      if (canRetry) {
+        await sleep(RETRY_DELAY_MS);
+        continue;
+      }
+
+      const message =
+        err instanceof ApiError
+          ? `Failed to load users (${err.status})`
+          : "Failed to load users. Is the backend running on port 8080?";
+      throw new Error(message);
+    }
+  }
+
+  throw new Error("Failed to load users");
+}
+
 type FetchResult = {
   key: string;
   pageData: PageResponse<UserWithVisitStats> | null;
@@ -43,35 +67,19 @@ export function useUsers(params: UserPageParams) {
     const key = requestKey;
     const requestParams = { page, size, role, sortBy, sortOrder };
 
-    void (async () => {
-      for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
-        try {
-          const data = await api.users.getAllWithVisitStats(requestParams);
-          if (cancelled) {
-            return;
-          }
+    loadUsers(requestParams)
+      .then((data) => {
+        if (!cancelled) {
           setResult({ key, pageData: data, error: null });
-          return;
-        } catch (err) {
-          const canRetry = isRetryableError(err) && attempt < MAX_RETRIES;
-          if (canRetry) {
-            await sleep(RETRY_DELAY_MS);
-            continue;
-          }
-
-          if (cancelled) {
-            return;
-          }
-
-          const message =
-            err instanceof ApiError
-              ? `Failed to load users (${err.status})`
-              : "Failed to load users. Is the backend running on port 8080?";
-          setResult({ key, pageData: null, error: message });
-          return;
         }
-      }
-    })();
+      })
+      .catch((err: unknown) => {
+        if (!cancelled) {
+          const message =
+            err instanceof Error ? err.message : "Failed to load users";
+          setResult({ key, pageData: null, error: message });
+        }
+      });
 
     return () => {
       cancelled = true;
