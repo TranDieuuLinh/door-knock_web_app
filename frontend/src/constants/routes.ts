@@ -8,14 +8,7 @@ export const routes = {
   analyse: "/analyse",
 } as const;
 
-export const dashboardRoutes = [
-  routes.runsheet,
-  routes.households,
-  routes.users,
-  routes.map,
-  routes.ranking,
-  routes.analyse,
-] as const;
+export const dashboardRoutes = [routes.users] as const;
 
 export function isDashboardPath(pathname: string) {
   return dashboardRoutes.some(
