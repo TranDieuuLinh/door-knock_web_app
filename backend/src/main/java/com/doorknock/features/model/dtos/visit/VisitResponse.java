@@ -7,7 +7,6 @@ import java.util.UUID;
 
 public record VisitResponse(
         UUID visitId,
-        UUID userId,
         VisitStatus status,
         LocalDateTime visitedAt
 ) {

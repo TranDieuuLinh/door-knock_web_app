@@ -42,12 +42,12 @@ public class VisitRepositoryImpl implements VisitRepository {
 
     @Override
     public long countVisitByUserId(UUID userId) {
-        return jpaRepository.countByUserId(userId);
+        return jpaRepository.countByUser_UserId(userId);
     }
 
     @Override
     public Optional<Instant> findLatestVisitedTimeByUserId(UUID userId) {
-        return jpaRepository.findTopByUserIdOrderByVisitedAtDesc(userId)
+        return jpaRepository.findTopByUser_UserIdOrderByVisitedAtDesc(userId)
                 .map(Visit::getVisitedAt);
     }
 
@@ -57,9 +57,9 @@ public class VisitRepositoryImpl implements VisitRepository {
             return Map.of();
         }
 
-        return jpaRepository.findByUserIdIn(userIds).stream()
+        return jpaRepository.findByUser_UserIdIn(userIds).stream()
                 .collect(Collectors.groupingBy(
-                        Visit::getUserId,
+                        visit -> visit.getUser().getUserId(),
                         Collectors.collectingAndThen(
                                 Collectors.toList(),
                                 this::toVisitStats

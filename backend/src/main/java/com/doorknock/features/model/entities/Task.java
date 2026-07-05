@@ -22,9 +22,6 @@ public class Task {
     private UUID taskId;
 
     @Column(nullable = false)
-    private String content;
-
-    @Column(nullable = false)
     private Instant assignedDate;
 
     @Column
@@ -35,7 +32,11 @@ public class Task {
     private TaskStatus taskStatus;
 
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "task_id")
+    @OneToMany(mappedBy = "task", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Visit> visits;
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 }

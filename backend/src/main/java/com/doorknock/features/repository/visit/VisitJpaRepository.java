@@ -10,9 +10,9 @@ import java.util.UUID;
 
 public interface VisitJpaRepository extends JpaRepository<Visit, UUID> {
 
-    long countByUserId(UUID userId);
+    long countByUser_UserId(UUID userId);
 
-    Optional<Visit> findTopByUserIdOrderByVisitedAtDesc(UUID userId);
+    Optional<Visit> findTopByUser_UserIdOrderByVisitedAtDesc(UUID userId);
 
-    List<Visit> findByUserIdIn(Collection<UUID> userIds);
+    List<Visit> findByUser_UserIdIn(Collection<UUID> userIds);
 }

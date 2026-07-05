@@ -4,8 +4,9 @@ import com.doorknock.features.model.dtos.user.CreateUserRequest;
 import com.doorknock.features.model.dtos.user.UserPageRequest;
 import com.doorknock.features.model.dtos.user.UpdateUserRequest;
 import com.doorknock.features.model.dtos.user.UserResponse;
-import com.doorknock.features.model.dtos.user.UserWithVisitStatsResponse;
+import com.doorknock.features.model.dtos.UserWithVisitStatsResponse;
 import com.doorknock.features.service.user.UserService;
+import com.doorknock.features.service.VolunteerService;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -29,9 +30,11 @@ import java.util.UUID;
 public class UserController {
 
     private final UserService userService;
+    private final VolunteerService volunteerService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, VolunteerService volunteerService) {
         this.userService = userService;
+        this.volunteerService = volunteerService;
     }
 
     @PostMapping
@@ -42,7 +45,7 @@ public class UserController {
 
     @GetMapping("/volunteers")
     public Page<UserWithVisitStatsResponse> getAllWithVisitStats(@ModelAttribute UserPageRequest request) {
-        return userService.getAllWithVisitStats(request);
+        return volunteerService.getAllWithVisitStats(request);
     }
 
     @GetMapping("/{id}")

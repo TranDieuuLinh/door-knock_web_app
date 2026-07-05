@@ -35,4 +35,10 @@ public final class PageableUtils {
 
         return PageRequest.of(resolvedPage, resolvedSize, Sort.by(direction, resolvedSortBy));
     }
+
+    public static Pageable buildPagingOnly(int page, int size) {
+        int resolvedPage = page < 0 ? DEFAULT_PAGE : page;
+        int resolvedSize = size <= 0 ? DEFAULT_SIZE : Math.min(size, MAX_SIZE);
+        return PageRequest.of(resolvedPage, resolvedSize);
+    }
 }

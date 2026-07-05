@@ -1,16 +1,14 @@
 package com.doorknock.features.service.user;
 
+import com.doorknock.features.common.utils.UserPageQuery;
 import com.doorknock.features.common.utils.UserPageableUtils;
 import com.doorknock.features.mapper.UserMapper;
-import com.doorknock.features.mapper.UserVisitMapper;
 import com.doorknock.features.model.dtos.user.CreateUserRequest;
 import com.doorknock.features.model.dtos.user.UserPageRequest;
 import com.doorknock.features.model.dtos.user.UpdateUserRequest;
 import com.doorknock.features.model.dtos.user.UserResponse;
-import com.doorknock.features.model.dtos.user.UserWithVisitStatsResponse;
 import com.doorknock.features.model.entities.User;
 import com.doorknock.features.repository.user.UserRepository;
-import com.doorknock.features.repository.visit.VisitRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -26,11 +24,9 @@ import java.util.UUID;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
-    private final VisitRepository visitRepository;
 
-    public UserServiceImpl(UserRepository userRepository, VisitRepository visitRepository) {
+    public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.visitRepository = visitRepository;
     }
 
     @Override
@@ -56,24 +52,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(readOnly = true)
-    public Page<UserWithVisitStatsResponse> getAllWithVisitStats(UserPageRequest request) {
-        Pageable pageable = UserPageableUtils.from(request);
-        Page<User> users = findUsers(request, pageable);
-
-        List<UUID> userIds = users.getContent().stream()
-                .map(User::getUserId)
-                .toList();
-
-        var statsByUserId = visitRepository.getStatsByUserIds(userIds);
-
-        return users.map(user -> UserVisitMapper.toResponseWithVisitStats(
-                user,
-                statsByUserId.get(user.getUserId())
-        ));
-    }
-
-    @Override
-    @Transactional(readOnly = true)
     public List<UserResponse> getAll() {
         return userRepository.findAll().stream()
                 .map(UserMapper::toResponse)
@@ -94,10 +72,7 @@ public class UserServiceImpl implements UserService {
     }
 
     private Page<User> findUsers(UserPageRequest request, Pageable pageable) {
-        if (request.role() == null) {
-            return userRepository.findAll(pageable);
-        }
-        return userRepository.findAllByRole(request.role(), pageable);
+        return UserPageQuery.findUsers(userRepository, request, pageable);
     }
 
     private User findOrThrow(UUID id) {

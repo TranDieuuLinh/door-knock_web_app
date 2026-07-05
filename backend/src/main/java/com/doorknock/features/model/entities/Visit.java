@@ -1,6 +1,7 @@
 package com.doorknock.features.model.entities;
 
 import com.doorknock.features.common.enums.VisitStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -32,6 +33,13 @@ public class Visit {
     @Column(nullable = false)
     private VisitStatus visitStatus;
 
-    @Column(name = "user_id", nullable = false)
-    private UUID userId;
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "task_id")
+    private Task task;
 }

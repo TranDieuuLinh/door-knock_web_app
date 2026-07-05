@@ -12,23 +12,22 @@ VALUES
     ('66666666-6666-6666-6666-666666666666', 'Jessica Taylor',  'jessica.taylor@doorknock.org', '9 Queen St, Brisbane QLD',       'Brisbane South',  400000006, '$2a$10$mockpassword6', 'Brisbane South Campaign',  'ACTIVE',   '2026-06-03T11:01:00Z', 'DOORKNOCKER'),
     ('77777777-7777-7777-7777-777777777777', 'Andrew White',    'andrew.white@doorknock.org',   '14 Adelaide St, Brisbane QLD',  'Brisbane South',  400000007, '$2a$10$mockpassword7', 'Brisbane South Campaign',  'ACTIVE',   '2026-06-04T12:00:00Z', 'DOORKNOCKER'),
     ('88888888-8888-8888-8888-888888888888', 'Olivia Green',    'olivia.green@doorknock.org',   '2 Murray St, Perth WA',         'Perth Metro',     400000008, '$2a$10$mockpassword8', 'Perth Metro Campaign',     'ON_LEAVE', '2026-06-04T12:01:00Z', 'DOORKNOCKER'),
-    ('99999999-9999-9999-9999-999999999999', 'Liam Carter',     'liam.carter@doorknock.org',    '7 Hay St, Perth WA',            'Perth Metro',     400000009, '$2a$10$mockpassword9', 'Perth Metro Campaign',     'ACTIVE',   '2026-06-05T08:00:00Z', 'DOORKNOCKER');
+    ('99999999-9999-9999-9999-999999999999', 'Liam Carter',     'liam.carter@doorknock.org',    '7 Hay St, Perth WA',            'Perth Metro',     400000009, '$2a$10$mockpassword9', 'Perth Metro Campaign',     'ACTIVE',   '2026-06-05T08:00:00Z', 'DOORKNOCKER'),
+    ('7f3a9d2e-4b6c-4f8a-9d12-83e5b71c9a40', 'Anthony',         'abc@gmail.com',                '12 Campbell St, Toowoomba QLD', 'Toowoomba North', 400000010, '$2a$10$mockpassword10', 'Campaign A',               'ACTIVE',   '2026-06-05T08:30:00Z', 'ADMIN');
 
-INSERT INTO tasks (task_id, content, assigned_date, updated_at, task_status, user_id)
+INSERT INTO tasks (task_id, assigned_date, updated_at, task_status, user_id)
 VALUES
-    ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'Knock doors on King St, Parramatta',        '2026-06-05T08:00:00Z', NULL, 'PENDING',     '33333333-3333-3333-3333-333333333333'),
-    ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', 'Follow up Collins St households',           '2026-06-05T09:00:00Z', NULL, 'PENDING',     '44444444-4444-4444-4444-444444444444'),
-    ('cccccccc-cccc-cccc-cccc-cccccccccccc', 'Coordinate Melbourne North zone',           '2026-06-06T08:30:00Z', NULL, 'PENDING',     '55555555-5555-5555-5555-555555555555'),
-    ('dddddddd-dddd-dddd-dddd-dddddddddd01', 'Queen St doorknock block A',                '2026-06-06T09:00:00Z', NULL, 'PENDING', '66666666-6666-6666-6666-666666666666'),
-    ('dddddddd-dddd-dddd-dddd-dddddddddd02', 'Queen St doorknock block B',                '2026-06-06T10:00:00Z', NULL, 'PENDING',     '66666666-6666-6666-6666-666666666666'),
-    ('eeeeeeee-eeee-eeee-eeee-eeeeeeeeee01', 'Hay St introductory round',                 '2026-06-07T08:00:00Z', NULL, 'PENDING',     '99999999-9999-9999-9999-999999999999');
+    ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', '2026-06-05T08:00:00Z', NULL,                    'PENDING',   '33333333-3333-3333-3333-333333333333'),
+    ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', '2026-06-05T09:00:00Z', NULL,                    'PENDING',   '44444444-4444-4444-4444-444444444444'),
+    ('cccccccc-cccc-cccc-cccc-cccccccccccc', '2026-06-06T08:30:00Z', NULL,                    'PENDING',   '55555555-5555-5555-5555-555555555555'),
+    ('dddddddd-dddd-dddd-dddd-dddddddddd01', '2026-06-06T09:00:00Z', NULL,                    'PENDING',   '66666666-6666-6666-6666-666666666666'),
+    ('dddddddd-dddd-dddd-dddd-dddddddddd02', '2026-06-06T10:00:00Z', NULL,                    'PENDING',   '66666666-6666-6666-6666-666666666666'),
+    ('eeeeeeee-eeee-eeee-eeee-eeeeeeeeee01', '2026-06-07T08:00:00Z', NULL,                    'PENDING',   '99999999-9999-9999-9999-999999999999'),
+    ('f1f1f1f1-f1f1-f1f1-f1f1-f1f1f1f1f101', '2026-06-08T08:00:00Z', NULL,                    'PENDING',   '7f3a9d2e-4b6c-4f8a-9d12-83e5b71c9a40'),
+    ('f1f1f1f1-f1f1-f1f1-f1f1-f1f1f1f1f102', '2026-06-09T09:00:00Z', '2026-06-10T14:00:00Z', 'COMPLETED', '7f3a9d2e-4b6c-4f8a-9d12-83e5b71c9a40'),
+    ('f1f1f1f1-f1f1-f1f1-f1f1-f1f1f1f1f103', '2026-06-10T10:00:00Z', NULL,                    'PENDING',   '7f3a9d2e-4b6c-4f8a-9d12-83e5b71c9a40');
 
--- Michael Brown: 3 visits, lastActive = 2026-06-10
--- Emma Wilson:   2 visits, lastActive = 2026-06-09
--- Jessica Taylor: 5 visits, lastActive = 2026-06-11 (most active doorknocker)
--- Liam Carter:   1 visit,  lastActive = 2026-06-08
--- Andrew White:  0 visits (null lastActive)
--- Olivia Green:  0 visits (on leave, no activity yet)
+
 
 INSERT INTO visits (visit_id, outcome, note, visited_at, visit_status, user_id, task_id)
 VALUES
@@ -45,4 +44,8 @@ VALUES
     ('33333333-aaaa-aaaa-aaaa-aaaaaaaaaaad', 'Interested',        'Registered for town hall',         '2026-06-10T10:20:00Z', 'VISITED',   '66666666-6666-6666-6666-666666666666', 'dddddddd-dddd-dddd-dddd-dddddddddd02'),
     ('33333333-aaaa-aaaa-aaaa-aaaaaaaaaaae', 'Strong supporter',  'Offered to host street meeting',   '2026-06-11T17:00:00Z', 'VISITED',   '66666666-6666-6666-6666-666666666666', 'dddddddd-dddd-dddd-dddd-dddddddddd02'),
 
-    ('44444444-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'Interested',        'New resident, open to chat',       '2026-06-08T13:00:00Z', 'VISITED',   '99999999-9999-9999-9999-999999999999', 'eeeeeeee-eeee-eeee-eeee-eeeeeeeeee01');
+    ('44444444-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'Interested',        'New resident, open to chat',       '2026-06-08T13:00:00Z', 'VISITED',   '99999999-9999-9999-9999-999999999999', 'eeeeeeee-eeee-eeee-eeee-eeeeeeeeee01'),
+
+    ('55555555-aaaa-aaaa-aaaa-aaaaaaaaaaaa', 'Interested',        'Wants more information',           '2026-06-08T09:00:00Z', 'VISITED',   '7f3a9d2e-4b6c-4f8a-9d12-83e5b71c9a40', 'f1f1f1f1-f1f1-f1f1-f1f1-f1f1f1f1f101'),
+    ('55555555-aaaa-aaaa-aaaa-aaaaaaaaaaab', 'Not home',          'Will return tomorrow',             '2026-06-09T11:00:00Z', 'UNVISITED', '7f3a9d2e-4b6c-4f8a-9d12-83e5b71c9a40', 'f1f1f1f1-f1f1-f1f1-f1f1-f1f1f1f1f101'),
+    ('55555555-aaaa-aaaa-aaaa-aaaaaaaaaaac', 'Strong supporter',  'Signed petition',                  '2026-06-10T15:30:00Z', 'VISITED',   '7f3a9d2e-4b6c-4f8a-9d12-83e5b71c9a40', 'f1f1f1f1-f1f1-f1f1-f1f1-f1f1f1f1f102');

@@ -22,5 +22,6 @@ public interface VisitRepository {
     long countVisitByUserId(UUID userId);
 
     Optional<Instant> findLatestVisitedTimeByUserId(UUID userId);
+
     Map<UUID, VisitStat> getStatsByUserIds(List<UUID> userIds);
 }

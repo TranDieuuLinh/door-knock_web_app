@@ -1,7 +1,6 @@
 package com.doorknock.features.mapper;
 
-import com.doorknock.features.model.dtos.user.UserResponse;
-import com.doorknock.features.model.dtos.user.UserWithVisitStatsResponse;
+import com.doorknock.features.model.dtos.UserWithVisitStatsResponse;
 import com.doorknock.features.model.dtos.visit.VisitStat;
 import com.doorknock.features.model.entities.User;
 

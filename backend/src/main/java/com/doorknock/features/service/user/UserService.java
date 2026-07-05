@@ -4,7 +4,6 @@ import com.doorknock.features.model.dtos.user.CreateUserRequest;
 import com.doorknock.features.model.dtos.user.UserPageRequest;
 import com.doorknock.features.model.dtos.user.UpdateUserRequest;
 import com.doorknock.features.model.dtos.user.UserResponse;
-import com.doorknock.features.model.dtos.user.UserWithVisitStatsResponse;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
@@ -17,8 +16,6 @@ public interface UserService {
     UserResponse getById(UUID id);
 
     Page<UserResponse> getAll(UserPageRequest request);
-
-    Page<UserWithVisitStatsResponse> getAllWithVisitStats(UserPageRequest request);
 
     List<UserResponse> getAll();
 
