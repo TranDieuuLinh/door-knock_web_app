@@ -1,4 +1,4 @@
-package com.doorknock.features.model.dtos;
+package com.doorknock.features.model.dtos.task;
 
 import com.doorknock.features.common.enums.TaskStatus;
 

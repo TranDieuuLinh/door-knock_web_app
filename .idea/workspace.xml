@@ -6,14 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="09cc3b03-f4ff-46db-bad7-83e6760f67da" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/model/dtos/user/UserWithVisitStatsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/model/dtos/user/UserWithVisitStatsResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/model/dtos/visit/VisitStats.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/common/utils/PageableUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/common/utils/PageableUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/common/utils/UserPageableUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/common/utils/UserPageableUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/model/entities/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/model/entities/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/task/TaskJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/task/TaskJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/task/TaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/task/TaskRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/task/TaskRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/task/TaskRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/user/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/user/UserRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/user/UserRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/visit/VisitRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/visit/VisitRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/visit/VisitRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/repository/visit/VisitRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/service/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/service/user/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/service/visit/VisitService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/service/visit/VisitService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/service/visit/VisitServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/doorknock/features/service/visit/VisitServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +33,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/7.0.7/spring-aop-7.0.7-sources.jar!/org/springframework/aop/framework/CglibAopProxy.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/7.0.7/spring-webmvc-7.0.7-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3,
@@ -50,14 +56,19 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "Spring Boot.DoorknockApplication.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "feature/martin/develop__table__of__users",
+    "git-widget-placeholder": "feature/martin/develop__user__notification__on__tasks",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/martin/door-knock_web_app",
+    "last_opened_file_path": "/home/martin/door-knock_web_app/backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/home/martin/door-knock_web_app/frontend/node_modules/typescript/lib"
   }
 }]]></component>
   <component name="RunManager">
@@ -85,8 +96,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.24374.151" />
-        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.24374.151" />
+        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.26222.65" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.26222.65" />
       </set>
     </attachedChunks>
   </component>

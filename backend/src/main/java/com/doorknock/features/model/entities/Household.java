@@ -1,5 +1,6 @@
 package com.doorknock.features.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalTime;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -41,4 +43,8 @@ public class Household {
 
     @Column(nullable = false)
     private String familyName;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "household")
+    private List<Task> tasks;
 }

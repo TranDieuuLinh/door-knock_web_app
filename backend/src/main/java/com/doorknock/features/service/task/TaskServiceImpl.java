@@ -1,8 +1,6 @@
 package com.doorknock.features.service.task;
 
 import com.doorknock.features.model.dtos.task.TaskUserResponse;
-import com.doorknock.features.model.entities.Task;
-import com.doorknock.features.model.entities.User;
 import com.doorknock.features.repository.task.TaskRepository;
 import com.doorknock.features.repository.user.UserRepository;
 import org.springframework.http.HttpStatus;
@@ -11,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class TaskServiceImpl implements TaskService{
@@ -33,10 +30,8 @@ public class TaskServiceImpl implements TaskService{
                     "User not found with email: " + userEmail
             );
         }
-        return taskRepository.findTaskByUserID(user.get().getUserId())
-                .orElse(List.of())
-                .stream()
-                .map(task -> new TaskUserResponse(task.getTaskId(), task.getTaskStatus()))
+        return taskRepository.findTaskByUserID(user.get().getUserId()).stream()
+                .map(task -> new TaskUserResponse(task.getTaskId(), task.getTaskStatus(), task.getHousehold()))
                 .toList();
     }
 

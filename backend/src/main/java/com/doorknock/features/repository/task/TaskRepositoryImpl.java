@@ -22,7 +22,7 @@ public class TaskRepositoryImpl implements TaskRepository {
     }
 
     @Override
-    public Optional<Task> findById(UUID taskId) {
+    public Optional<Task> findByTaskId(UUID taskId) {
         return jpaRepository.findById(taskId);
     }
 
@@ -37,7 +37,7 @@ public class TaskRepositoryImpl implements TaskRepository {
     }
 
     @Override
-    public Optional<List<Task>> findTaskByUserID(UUID userId) {
+    public List<Task> findTaskByUserID(UUID userId) {
         return jpaRepository.findByUser_UserId(userId);
     }
 }

@@ -10,9 +10,9 @@ public interface TaskRepository {
 
     Task save(Task task);
 
-    Optional<Task> findById(UUID taskId);
+    Optional<Task> findByTaskId(UUID taskId);
     
-    Optional<List<Task>> findTaskByUserID(UUID userId);
+    List<Task> findTaskByUserID(UUID userId);
 
     List<Task> findAll();
 
